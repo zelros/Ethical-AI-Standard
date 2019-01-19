@@ -39,11 +39,14 @@ abece2ef84645c61499cb4b74f552daa205380666b1ab03bbfa2fcdab91b11b6
 
 # 3. Data Preparation 
 ## 3.10 Rows filtering
+No row has been removed.
 
 ## 3.20 Columns filtering
+The 'Claim Id' variable has been removed.
 
 ## 3.30 Missing values handling
-
+For categorical variables: replacement by the most frequent value.
+For numerical variables: replacement by variable median. 
 
 ## 3.40 Dataset unique signature
 At this step, the dataset unique signature is:
@@ -53,9 +56,13 @@ At this step, the dataset unique signature is:
 
 # 4. Features engineering
 
-## 4.10 Created features
+## 4.10 Created variables
+2 variables have been created: 
+- Age of the insured person at loan subscription, in months (loan subscription date - insured birth date)
+- Loan seniority at claim creation date, in months (claim creation date - loan subscription date)
 
 ## 4.20 Target creation
+The target is computed like this: if claim processing time (settlement date - creation date) is superior to 3 weeks, it is considered as complex (target = 1), else it is simple (target = 0).
 
 ## 4.30 Dataset unique signature
 At this step, the dataset unique signature is:
@@ -81,7 +88,7 @@ We used the GradientBoosting algorithm (scikit-learn 0.20.2) with the following 
 ```
 
 ## 6.20 Metrics
-We used the logloss metric. 
+We used the Log Loss metric. 
 
 ## 6.30 Validation strategy
 We chosed hyperparameters and variable with a 3-fold cross-validation. 
@@ -90,11 +97,18 @@ We chosed hyperparameters and variable with a 3-fold cross-validation.
 The cross-validation score with the logloss metric is : 0,406
 
 ## 6.50 Model unique signature
+Trained model unique signature is:
+```
+a5b4e3721bd9ea1db352b8672a2facb61058380869f09bd35bb0072695d88cbb
+```
 
 
 # 7. Model Audit
 ## 7.10 Variable importance
+![](./img/chart3.png)
 
 ## 7.20 Learning curve
+![](./img/chart4.png)
 
 ## 7.30 Stability over time
+![](./img/chart5.png)
