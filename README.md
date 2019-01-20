@@ -21,4 +21,4 @@ In this repository, you can find:
 ## How you can contribute
 You can contribute by:
 - suggesting PRs (pull requests)
-- writing at [hi (at) zelros.com](mailto:hi@zelros.com)
+- writing [at this address](mailto:hi@zelros.com)
