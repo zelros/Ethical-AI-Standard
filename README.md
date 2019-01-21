@@ -1,11 +1,11 @@
 # An Open Standard for Ethical Enterprise-Grade AI
 This is the result of our thoughts, at Zelros, to define an **open standard for a transparent use of machine learning algorithms in enterprises**.
 
-You can find the story behind this standard [in this blog](https://medium.com/@Zelros).
+You can find the story behind this standard [in this blog post](https://medium.com/@Zelros/an-open-standard-for-ethical-enterprise-grade-ai-b21bc5908b73).
 
 ## What is this standard about?
 The standard we propose takes the form of a 'check-list', that every machine learning model embedded in a product or a service should document. We believe that filling this standard document for each AI model in production contributes to their **traceability, compliance and transparency**.
-The standard has seven sections, explained [in the blog](https://medium.com/@Zelros).
+The standard has seven sections, explained [in the blog post](https://medium.com/@Zelros/an-open-standard-for-ethical-enterprise-grade-ai-b21bc5908b73).
 
 ## Why publishing this standard on github?
 We decided to publish this standard publicly on our github, because we know that is is only an imperfect preliminary version. It has to be reviewed by external contributors to be improved. By making our standard public, we hope it will gain visibility, and **attract as much feedback as possible**. We would love to learn:
