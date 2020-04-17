@@ -1,6 +1,6 @@
 # 1. General Information
 ## 1.01 Standard Version
-0.1
+0.2
 ## 1.10 Name
 ## 1.20 Purpose
 ## 1.30 Date
@@ -10,8 +10,24 @@
 # 2. Initial Data 
 ## 2.10 Sample
 ## 2.20 Size
-## 2.30 Variables description
+## 2.30 Variables description (+ types and possible values)
 ## 2.40 Dataset unique signature
+
+# 3. Data Quality
+
+## 3.10 Columns
+### 3.10.10 Proportion of missing values by column
+### 3.10.20 Proportion of columns filled in 
+(compared to our 'final table') [Only applicable in a AI4Sales case]
+### 3.10.30 Columns containing only one value (NaN included)
+
+## 3.20 Rows
+### 3.20.10 Number of duplicate rows
+### 3.20.20 Number of rows where all fields are missing
+### 3.20.30 Number of rows where at least 2 fields are filled in
+
+## 3.30 Rule to apply for bad date formats
+
 
 # 3. Data Preparation 
 ## 3.10 Rows filtering
