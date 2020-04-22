@@ -29,28 +29,28 @@
 ## 3.30 Rule to apply for bad date formats
 
 
-# 3. Data Preparation 
-## 3.10 Rows filtering
-## 3.20 Columns filtering
-## 3.30 Missing values handling
-## 3.40 Dataset unique signature
+# 4. Data Preparation 
+## 4.10 Rows filtering
+## 4.20 Columns filtering
+## 4.30 Missing values handling
+## 4.40 Dataset unique signature
 
-# 4. Features engineering
-## 4.10 Created variables
-## 4.20 Target creation
-## 4.30 Dataset unique signature
+# 5. Features engineering
+## 5.10 Created variables
+## 5.20 Target creation
+## 5.30 Dataset unique signature
 
-# 5. Training Data Audit
-## 5.10 Variables statistics
+# 6. Training Data Audit
+## 6.10 Variables statistics
 
-# 6. Model Description
-## 6.10 Used algorithm
-## 6.20 Metrics
-## 6.30 Validation strategy
-## 6.40 Performance
-## 6.50 Model unique signature
+# 7. Model Description
+## 7.10 Used algorithm
+## 7.20 Metrics
+## 7.30 Validation strategy
+## 7.40 Performance
+## 7.50 Model unique signature
 
-# 7. Model Audit
-## 7.10 Variable importance
-## 7.20 Learning curve
-## 7.30 Stability over time
+# 8. Model Audit
+## 8.10 Variable importance
+## 8.20 Learning curve
+## 8.30 Stability over time
