@@ -1,6 +1,6 @@
 # 1. General Information
 ## 1.01 Standard Version
-0.1
+0.2
 ## 1.10 Name
 ## 1.20 Purpose
 ## 1.30 Date
@@ -38,3 +38,4 @@
 ## 7.10 Variable importance
 ## 7.20 Learning curve
 ## 7.30 Stability over time
+## 7.40 Predictions distribution
