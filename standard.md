@@ -1,6 +1,6 @@
 # 1. General Information
 ## 1.01 Standard Version
-0.2
+0.3
 ## 1.10 Name
 ## 1.20 Purpose
 ## 1.30 Date
@@ -32,6 +32,7 @@
 ## 6.20 Metrics
 ## 6.30 Validation strategy
 ## 6.40 Performance
+## 6.41 Performance over protected groups
 ## 6.50 Model unique signature
 
 # 7. Model Audit
