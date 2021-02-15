@@ -1,6 +1,6 @@
 # 1. General Information
 ## 1.01 Standard Version
-0.2
+0.3
 ## 1.10 Name
 Home insurance claims classifier.
 ## 1.20 Purpose
@@ -95,6 +95,10 @@ We chosed hyperparameters and variable with a 3-fold cross-validation.
 
 ## 6.40 Performance
 The cross-validation score with the logloss metric is : 0,406
+
+## 6.41 Performance over protected groups
+The cross-validation logloss score over female is : 0,415
+The cross-validation logloss score over male is : 0,392
 
 ## 6.50 Model unique signature
 Trained model unique signature is:
