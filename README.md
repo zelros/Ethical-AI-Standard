@@ -3,7 +3,7 @@ This is the result of our thoughts, at Zelros, to define an **open standard for 
 
 You can find: 
 - the initial story behind this standard [in this blog post](https://medium.com/@Zelros/an-open-standard-for-ethical-enterprise-grade-ai-b21bc5908b73)
-- the explanation of the latest update [in this blog post](https://www.zelros.com/2021/02/15/announcing-the-latest-version-of-zelros-open-standard-for-a-more-responsible-ai/)
+- the explanation of the latest update [in this second blog post](https://www.zelros.com/2021/02/15/announcing-the-latest-version-of-zelros-open-standard-for-a-more-responsible-ai/)
 
 ## What is this standard about?
 The standard we propose takes the form of a 'check-list', that every machine learning model embedded in a product or a service should document. We believe that filling this standard document for each AI model in production contributes to their **traceability, compliance and transparency**.
