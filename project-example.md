@@ -9,7 +9,7 @@ For a better client experience and an improved claim processing time, predict at
 12.01.2019
 
 ## 1.40 Contributors
-John Doe. 
+John Doe and Jane Rey. 
 
 ## 1.50 Source code
 The source code is available at this address: http://www.intranet/project/dir
@@ -37,46 +37,87 @@ At this step, the dataset unique signature is:
 abece2ef84645c61499cb4b74f552daa205380666b1ab03bbfa2fcdab91b11b6
 ```
 
-# 3. Data Preparation 
-## 3.10 Rows filtering
-No row has been removed.
+# 3. Data Quality
 
-## 3.20 Columns filtering
-The 'Claim Id' variable has been removed.
+## 3.10 Columns
 
-## 3.30 Missing values handling
+### 3.10.10 Proportion of missing values by column
+customer_age                          0%
+customer_seniority                    8%
+product_640_nb                       95%
+customer_department                  30%
+customer_sex                         10%
+customer_marital_status               3%
+customer_rural_urban                 23%
+
+### 3.10.20 Proportion of columns filled in
+47.59% of columns have been filled in
+
+### 3.10.30 Columns containing only one value (NaN included)
+87 columns have been dropped because they were containing only 1 value
+
+The 79 remaining columns are:
+home_nature
+...
+nb_children_16_18yo
+customer_marital_status
+customer_tenant_owner
+target
+
+## 3.20 Rows
+
+### 3.20.10 Number of duplicate rows
+617 duplicate rows have been dropped
+26646 rows remaining.
+
+### 3.20.20 Number of rows where all fields are missing
+No row is entirely empty
+26646 rows remaining.
+
+### 3.20.30 Number of rows where less than 2 fields are filled in
+Every row contains more than 2 non empty fields
+26646 rows remaining.
+
+# 4. Data Preparation
+
+## 4.10 Rows filtering
+No row filtering
+26646 rows remaining.
+
+## 4.20 Columns filtering
+The 79 remaining columns are:
+home_nature
+...
+nb_children_16_18yo
+customer_marital_status
+customer_tenant_owner
+target
+
+## 4.30 Missing values handling
 For categorical variables: replacement by the most frequent value.
-For numerical variables: replacement by variable median. 
+For numerical variables: replacement by variable median.
 
-## 3.40 Dataset unique signature
-At this step, the dataset unique signature is:
+## 4.40 Dataset unique signature
 ```
 87b01d1b7bc1b930348dd2d6d7c6d8c00fd5fa5179badc3a8d0a5eb8ab878eae
 ```
 
-# 4. Features engineering
+# 5. Features engineering
 
-## 4.10 Created variables
+## 5.10 Created variables
 2 variables have been created: 
 - Age of the insured person at loan subscription, in months (loan subscription date - insured birth date)
 - Loan seniority at claim creation date, in months (claim creation date - loan subscription date)
 
-## 4.20 Target creation
+## 5.20 Target creation
 The target is computed like this: if claim processing time (settlement date - creation date) is superior to 3 weeks, it is considered as complex (target = 1), else it is simple (target = 0).
+The target rate is: 6.61%
 
-## 4.30 Dataset unique signature
+## 5.30 Dataset unique signature
 At this step, the dataset unique signature is:
 ```
 bdb4e3721bd9ea1db352b8672a2facb61058380869f09bd35bb0072695d86a4d
 ```
-# 5. Training Data Audit
-
-## 5.10 Variables statistics
-### 5.10.1 Age
-![](./img/chart1.png)
-
-### 5.10.2 Gender
-![](./img/chart2.png)
 
 # 6. Model Description
 
@@ -86,6 +127,23 @@ We used the GradientBoosting algorithm (scikit-learn 0.20.2) with the following 
 ```python
 {'nthread': 4, 'objective': 'binary:logistic', 'eval_metric': 'logloss', 'colsample_bytree': 1, 'silent': 1, 'subsample': 0.8, 'learning_rate': 0.2, 'max_depth': 8, 'min_child_weight': 8, 'lambda': 1, 'alpha': 1}
 ```
+The version of xgboost is '1.0.0'
+
+The version of scikit-learn is '0.23.2'
+
+The dataset was split in train and test parts (90/10)
+
+## 6.11 Environmental impact
+Experiments were conducted in île-de-france.
+A cumulative of 54.40 seconds (0.015 hours) of computation was
+performed.
+Total emissions are estimated to be 9.05e-05 kgCO2eq.
+It represents 2.90e-03 tree-days.
+
+
+The metric "tree-days" corresponds to the number of days a
+mature tree needs to absorb this quantity of CO2.
+On average, a tree absorbs 11kgCO2/year.
 
 ## 6.20 Metrics
 We used the Log Loss metric. 
@@ -94,11 +152,87 @@ We used the Log Loss metric.
 We chosed hyperparameters and variable with a 3-fold cross-validation. 
 
 ## 6.40 Performance
-The cross-validation score with the logloss metric is : 0,406
+Metrics:
+
+Log-Loss: 0.187
+AUC: 0.902
+Accuracy: 0.934
+
+Threshold: 0.5
+F1 score: 0.206
+Precision: 0.535
+Recall: 0.128
+Confusion matrix:
+
+Confusion matrix:
+ [ 2465   20 ]
+ [  157   23 ]
+
+Lift Curve:
+
+Lift at 10%: 2.06
 
 ## 6.41 Performance over protected groups
-The cross-validation logloss score over female is : 0,415<br> 
-The cross-validation logloss score over male is : 0,392
+Protected features "['customer_sex',
+'customer_age']" used in dataset.
+
+
+The following metrics are computed with a threshold = 0.5
+Feature: customer_sex
+
+Distribution of predictions per subgroup
+             0      1
+global  98.39%  1.61%
+F       98.31%  1.69%
+M       98.46%  1.54%
+
+Performances of the model per subgroup
+         ratio logloss   auc accuracy f1_score precision recall  \
+global    100%    0.19   0.9     0.93     0.21      0.53   0.13
+F       48.93%    0.18  0.91     0.93      0.2       0.5   0.12
+M       51.07%    0.19  0.89     0.94     0.21      0.57   0.13
+
+   adversarial_proportions
+global                    0.0%
+F                         0.0%
+M                         0.0%
+
+Feature: customer_age
+
+Distribution of predictions per subgroup
+                  0      1
+global       98.39%  1.61%
+0_0-18yr     100.0%   0.0%
+1_18-30yr    94.43%  5.57%
+2_30-45yr    96.97%  3.03%
+3_45-60yr    100.0%   0.0%
+4_over_60yr  100.0%   0.0%
+
+Performances of the model per subgroup
+              ratio logloss   auc accuracy f1_score precision recall
+\
+global         100%    0.19   0.9     0.93     0.21      0.53   0.13
+0_0-18yr      18.2%    0.04  0.94      1.0      0.0       0.0    0.0
+1_18-30yr    16.85%    0.43  0.81     0.82     0.28      0.64   0.18
+2_30-45yr    22.33%    0.35  0.77     0.86     0.15      0.39   0.09
+3_45-60yr    22.89%     0.1  0.83     0.98      0.0       0.0    0.0
+4_over_60yr  19.74%    0.04  0.92      1.0      0.0       0.0    0.0
+
+   adversarial_proportions
+global                        7.05%
+0_0-18yr                       0.0%
+1_18-30yr                     9.35%
+2_30-45yr                    13.45%
+3_45-60yr                     7.54%
+4_over_60yr                    3.8%
+
+The percentage of adversarial examples corresponds to the percentage
+of instances for which the prediction of the model can be modified by
+changing only the considered feature.
+
+In other words, these are instances for which, if the considered
+feature were worth something else, all other things being equal, then
+the model prediction would be different.
 
 ## 6.50 Model unique signature
 Trained model unique signature is:
@@ -106,15 +240,17 @@ Trained model unique signature is:
 a5b4e3721bd9ea1db352b8672a2facb61058380869f09bd35bb0072695d88cbb
 ```
 
-
 # 7. Model Audit
+
 ## 7.10 Variable importance
 ![](./img/chart3.png)
 
 ## 7.20 Learning curve
 ![](./img/chart4.png)
 
-## 7.30 Stability over time
-![](./img/chart5.png)
+## 7.40 Descriptive Statistics
+![](./img/chart1.png)
+![](./img/chart2.png)
 
-## 7.40 Predictions distribution
+## 7.50 Stability over time
+![](./img/chart5.png)

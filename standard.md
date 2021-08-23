@@ -1,6 +1,6 @@
 # 1. General Information
 ## 1.01 Standard Version
-0.3
+v1.0
 ## 1.10 Name
 ## 1.20 Purpose
 ## 1.30 Date
@@ -13,22 +13,30 @@
 ## 2.30 Variables description
 ## 2.40 Dataset unique signature
 
-# 3. Data Preparation 
-## 3.10 Rows filtering
-## 3.20 Columns filtering
-## 3.30 Missing values handling
-## 3.40 Dataset unique signature
+# 3. Data Quality 
+## 3.10 Columns
+### 3.10.10 Proportion of missing values by column
+### 3.10.20 Proportion of columns filled in
+### 3.10.30 Columns containing only one value (NaN included)
+## 3.20 Rows
+### 3.20.10 Number of duplicate rows
+### 3.20.20 Number of rows where all fields are missing
+### 3.20.30 Number of rows where less than 2 fields are filled in
 
-# 4. Features engineering
-## 4.10 Created variables
-## 4.20 Target creation
-## 4.30 Dataset unique signature
+# 4. Data Preparation
+## 4.10 Rows filtering
+## 4.20 Columns filtering
+## 4.30 Missing values handling
+## 4.40 Dataset unique signature
 
-# 5. Training Data Audit
-## 5.10 Variables statistics
+# 5. Features engineering
+## 5.10 Created variables
+## 5.20 Target creation
+## 5.30 Dataset unique signature
 
 # 6. Model Description
 ## 6.10 Used algorithm
+## 6.11 Environmental impact
 ## 6.20 Metrics
 ## 6.30 Validation strategy
 ## 6.40 Performance
@@ -38,5 +46,6 @@
 # 7. Model Audit
 ## 7.10 Variable importance
 ## 7.20 Learning curve
-## 7.30 Stability over time
-## 7.40 Predictions distribution
+## 7.30 Probability Distribution
+## 7.40 Descriptive Statistics
+## 7.50 Stability over time
