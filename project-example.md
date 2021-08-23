@@ -1,5 +1,5 @@
 # 1. General Information
-## 1.01 Standard Version
+## 1.01 Standard version
 0.3
 ## 1.10 Name
 Home insurance claims classifier.
@@ -248,7 +248,9 @@ a5b4e3721bd9ea1db352b8672a2facb61058380869f09bd35bb0072695d88cbb
 ## 7.20 Learning curve
 ![](./img/chart4.png)
 
-## 7.40 Descriptive Statistics
+## 7.30 Probability distribution
+
+## 7.40 Descriptive statistics
 ![](./img/chart1.png)
 ![](./img/chart2.png)
 

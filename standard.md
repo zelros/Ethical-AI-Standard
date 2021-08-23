@@ -1,5 +1,5 @@
 # 1. General Information
-## 1.01 Standard Version
+## 1.01 Standard version
 v1.0
 ## 1.10 Name
 ## 1.20 Purpose
@@ -46,6 +46,6 @@ v1.0
 # 7. Model Audit
 ## 7.10 Variable importance
 ## 7.20 Learning curve
-## 7.30 Probability Distribution
-## 7.40 Descriptive Statistics
+## 7.30 Probability distribution
+## 7.40 Descriptive statistics
 ## 7.50 Stability over time
