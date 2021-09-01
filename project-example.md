@@ -6,7 +6,7 @@ Home insurance claims classifier.
 ## 1.20 Purpose
 For a better client experience and an improved claim processing time, predict at First Notification of Loss if a claim will be complex to handle, or simple. 
 ## 1.30 Date
-12.01.2019
+21.06.2021
 
 ## 1.40 Contributors
 John Doe and Jane Rey. 
@@ -30,6 +30,7 @@ Rows: 215 412
 | ------------- |-------------|-------------|
 | Age           | The age of the client |34
 | Gender      | The gender of the client      |   M |
+| Loan Amount       | Amount of the client loan     |   83000 |
 
 ## 2.40 Dataset unique signature
 At this step, the dataset unique signature is:
@@ -42,55 +43,51 @@ abece2ef84645c61499cb4b74f552daa205380666b1ab03bbfa2fcdab91b11b6
 ## 3.10 Columns
 
 ### 3.10.10 Proportion of missing values by column
-customer_age                          0%
-customer_seniority                    8%
-product_640_nb                       95%
-customer_department                  30%
-customer_sex                         10%
-customer_marital_status               3%
-customer_rural_urban                 23%
+| Feature   | Missing value percentage |
+| ------------- |-------------|
+| Age           | 11% |
+| Gender      | 20%      |
+| Loan Amount      | 4%      |
 
 ### 3.10.20 Proportion of columns filled in
-47.59% of columns have been filled in
+89.47% of columns have been filled in
 
 ### 3.10.30 Columns containing only one value (NaN included)
-87 columns have been dropped because they were containing only 1 value
+2 columns have been dropped because they were containing only 1 value
 
-The 79 remaining columns are:
-home_nature
+The 15 remaining columns are:
+Age
+Loan Amount
+Gender
 ...
-nb_children_16_18yo
-customer_marital_status
-customer_tenant_owner
 target
 
 ## 3.20 Rows
 
 ### 3.20.10 Number of duplicate rows
-617 duplicate rows have been dropped
-26646 rows remaining.
+617 duplicate rows have been dropped.
+214 795 rows remaining.
 
 ### 3.20.20 Number of rows where all fields are missing
-No row is entirely empty
-26646 rows remaining.
+No row is entirely empty.
+214 795 rows remaining.
 
 ### 3.20.30 Number of rows where less than 2 fields are filled in
-Every row contains more than 2 non empty fields
-26646 rows remaining.
+Every row contains more than 2 non empty fields.
+214 795 rows remaining.
 
 # 4. Data Preparation
 
 ## 4.10 Rows filtering
 No row filtering
-26646 rows remaining.
+214 795 rows remaining.
 
 ## 4.20 Columns filtering
-The 79 remaining columns are:
-home_nature
+The 15 remaining columns are:
+Age
+Loan Amount
+Gender
 ...
-nb_children_16_18yo
-customer_marital_status
-customer_tenant_owner
 target
 
 ## 4.30 Missing values handling
@@ -134,11 +131,11 @@ The version of scikit-learn is '0.23.2'
 The dataset was split in train and test parts (90/10)
 
 ## 6.11 Environmental impact
-Experiments were conducted in île-de-france.
-A cumulative of 54.40 seconds (0.015 hours) of computation was
+Servers used were hosted in île-de-france.
+A cumulative of 5440 seconds (1.5 hours) of computation was
 performed.
-Total emissions are estimated to be 9.05e-05 kgCO2eq.
-It represents 2.90e-03 tree-days.
+Total emissions are estimated to be 9.05e-03 kgCO2eq.
+It represents 0.29 tree-days.
 
 
 The metric "tree-days" corresponds to the number of days a
@@ -149,82 +146,80 @@ On average, a tree absorbs 11kgCO2/year.
 We used the Log Loss metric. 
 
 ## 6.30 Validation strategy
-We chosed hyperparameters and variable with a 3-fold cross-validation. 
+We chose hyperparameters and variable with a 3-fold cross-validation. 
 
 ## 6.40 Performance
-Metrics:
 
-Log-Loss: 0.187
-AUC: 0.902
-Accuracy: 0.934
+| Metric   | Value |
+| ------------- |-------------|
+| Log-Loss           | 0.187 |
+| AUC      | 0.902      |
+| Accuracy      | 0.934      |
+| Threshold           | 0.5 |
+| F1 score      | 0.206      |
+| Precision      | 0.535      |
+| Recall           | 0.128 |
 
-Threshold: 0.5
-F1 score: 0.206
-Precision: 0.535
-Recall: 0.128
 Confusion matrix:
 
-Confusion matrix:
- [ 2465   20 ]
- [  157   23 ]
+|    | P | N |
+| -------- |----|----|
+| P     | 2465 | 20 |
+| N      | 157 | 23 |
 
-Lift Curve:
 
 Lift at 10%: 2.06
 
 ## 6.41 Performance over protected groups
-Protected features "['customer_sex',
-'customer_age']" used in dataset.
-
+Protected features "['Gender', 'Age']" used in dataset.
 
 The following metrics are computed with a threshold = 0.5
-Feature: customer_sex
+
+Feature: Gender
 
 Distribution of predictions per subgroup
-             0      1
-global  98.39%  1.61%
-F       98.31%  1.69%
-M       98.46%  1.54%
+
+|        | 0      | 1     |
+| -------|--------|-------|
+| global | 98.39% | 1.61% |
+| F      | 98.31% | 1.69% |
+| M      | 98.46% | 1.54% |
+
 
 Performances of the model per subgroup
-         ratio logloss   auc accuracy f1_score precision recall  \
-global    100%    0.19   0.9     0.93     0.21      0.53   0.13
-F       48.93%    0.18  0.91     0.93      0.2       0.5   0.12
-M       51.07%    0.19  0.89     0.94     0.21      0.57   0.13
 
-   adversarial_proportions
-global                    0.0%
-F                         0.0%
-M                         0.0%
+|        | ratio  | logloss | auc  | accuracy | f1_score  | precision | recall  | adversarial_proportions |
+| -------|--------|---------|--------|---------|--------|---------|--------|---------|
+| global | 100% | 0.19   | 0.9  | 0.93 | 0.21  | 0.53 | 0.13  | 0.0% |
+| F      | 48.93% | 0.18   | 0.91  | 0.93 | 0.2  | 0.5 | 0.12  | 0.0% |
+| M      | 51.07% | 0.19   | 0.89  | 0.94 | 0.21  | 0.57 | 0.13  | 0.0% |
 
-Feature: customer_age
+
+Feature: Age
 
 Distribution of predictions per subgroup
-                  0      1
-global       98.39%  1.61%
-0_0-18yr     100.0%   0.0%
-1_18-30yr    94.43%  5.57%
-2_30-45yr    96.97%  3.03%
-3_45-60yr    100.0%   0.0%
-4_over_60yr  100.0%   0.0%
+
+|        | 0      | 1     |
+| -------|--------|-------|
+| global | 98.39% | 1.61% |
+| 0_0-18yr      | 100.0% | 0.0% |
+| 1_18-30yr     | 94.43% | 5.57% |
+| 2_30-45yr     | 96.97% | 3.03% |
+| 3_45-60yr     | 100.0% | 0.0% |
+| 4_over_60yr   | 100.0% | 0.0% |
+
 
 Performances of the model per subgroup
-              ratio logloss   auc accuracy f1_score precision recall
-\
-global         100%    0.19   0.9     0.93     0.21      0.53   0.13
-0_0-18yr      18.2%    0.04  0.94      1.0      0.0       0.0    0.0
-1_18-30yr    16.85%    0.43  0.81     0.82     0.28      0.64   0.18
-2_30-45yr    22.33%    0.35  0.77     0.86     0.15      0.39   0.09
-3_45-60yr    22.89%     0.1  0.83     0.98      0.0       0.0    0.0
-4_over_60yr  19.74%    0.04  0.92      1.0      0.0       0.0    0.0
 
-   adversarial_proportions
-global                        7.05%
-0_0-18yr                       0.0%
-1_18-30yr                     9.35%
-2_30-45yr                    13.45%
-3_45-60yr                     7.54%
-4_over_60yr                    3.8%
+|             | ratio| logloss | auc  |accuracy|f1_score| precision | recall  | adversarial_proportions |
+| ------------|------|---------|------|-------|--------|---------|--------|---------|
+| global      | 100%   | 0.19  | 0.9   | 0.93 | 0.21  | 0.53 | 0.13  | 7.05% |
+| 0_0-18yr    | 18.2%  | 0.04  | 0.94  | 1.0  | 0.0   | 0.0  | 0.0   | 0.0% |
+| 1_18-30yr   | 16.85% | 0.43  | 0.81  | 0.82 | 0.28  | 0.64 | 0.18  | 9.35% |
+| 2_30-45yr   | 22.33% | 0.35  | 0.77  | 0.86 | 0.15  | 0.39 | 0.09  | 13.45% |
+| 3_45-60yr   | 22.89% | 0.1   | 0.83  | 0.98 | 0.0   | 0.0  | 0.0   | 7.54% |
+| 4_over_60yr | 19.74% | 0.04  | 0.92  | 1.0  | 0.0   | 0.0  | 0.0   | 3.8% |
+
 
 The percentage of adversarial examples corresponds to the percentage
 of instances for which the prediction of the model can be modified by
