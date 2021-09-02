@@ -56,24 +56,30 @@ abece2ef84645c61499cb4b74f552daa205380666b1ab03bbfa2fcdab91b11b6
 2 columns have been dropped because they were containing only 1 value
 
 The 15 remaining columns are:
-Age
-Loan Amount
-Gender
-...
-target
+
+| Columns   |
+| ------------- |
+| Age           |
+| Gender      |
+| Loan Amount      |
+| ...      |
+| Target      |
 
 ## 3.20 Rows
 
 ### 3.20.10 Number of duplicate rows
 617 duplicate rows have been dropped.
+
 214 795 rows remaining.
 
 ### 3.20.20 Number of rows where all fields are missing
 No row is entirely empty.
+
 214 795 rows remaining.
 
 ### 3.20.30 Number of rows where less than 2 fields are filled in
 Every row contains more than 2 non empty fields.
+
 214 795 rows remaining.
 
 # 4. Data Preparation
@@ -84,11 +90,14 @@ No row filtering
 
 ## 4.20 Columns filtering
 The 15 remaining columns are:
-Age
-Loan Amount
-Gender
-...
-target
+
+| Columns   |
+| ------------- |
+| Age           |
+| Gender      |
+| Loan Amount      |
+| ...      |
+| Target      |
 
 ## 4.30 Missing values handling
 For categorical variables: replacement by the most frequent value.
@@ -108,6 +117,7 @@ For numerical variables: replacement by variable median.
 
 ## 5.20 Target creation
 The target is computed like this: if claim processing time (settlement date - creation date) is superior to 3 weeks, it is considered as complex (target = 1), else it is simple (target = 0).
+
 The target rate is: 6.61%
 
 ## 5.30 Dataset unique signature
@@ -132,8 +142,10 @@ The dataset was split in train and test parts (90/10)
 
 ## 6.11 Environmental impact
 Servers used were hosted in île-de-france.
+
 A cumulative of 5440 seconds (1.5 hours) of computation was
 performed.
+
 Total emissions are estimated to be 9.05e-03 kgCO2eq.
 It represents 0.29 tree-days.
 
@@ -181,9 +193,9 @@ Distribution of predictions per subgroup
 
 |        | 0      | 1     |
 | -------|--------|-------|
-| global | 98.39% | 1.61% |
-| F      | 98.31% | 1.69% |
-| M      | 98.46% | 1.54% |
+| global | 93.39% | 6.61% |
+| F      | 93.31% | 6.69% |
+| M      | 93.46% | 6.54% |
 
 
 Performances of the model per subgroup
@@ -200,10 +212,10 @@ Distribution of predictions per subgroup
 
 |        | 0      | 1     |
 | -------|--------|-------|
-| global | 98.39% | 1.61% |
+| global | 93.39% | 6.61% |
 | 0_0-18yr      | 100.0% | 0.0% |
-| 1_18-30yr     | 94.43% | 5.57% |
-| 2_30-45yr     | 96.97% | 3.03% |
+| 1_18-30yr     | 89.43% | 10.57% |
+| 2_30-45yr     | 91.97% | 8.03% |
 | 3_45-60yr     | 100.0% | 0.0% |
 | 4_over_60yr   | 100.0% | 0.0% |
 
