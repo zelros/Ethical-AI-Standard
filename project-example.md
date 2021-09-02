@@ -194,7 +194,6 @@ Performances of the model per subgroup
 | F      | 48.93% | 0.18   | 0.91  | 0.93 | 0.2  | 0.5 | 0.12  | 0.0% |
 | M      | 51.07% | 0.19   | 0.89  | 0.94 | 0.21  | 0.57 | 0.13  | 0.0% |
 
-
 Feature: Age
 
 Distribution of predictions per subgroup
