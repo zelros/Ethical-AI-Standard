@@ -27,7 +27,6 @@ v1.0
 ## 4.10 Rows filtering
 ## 4.20 Columns filtering
 ## 4.30 Missing values handling
-## 4.40 Dataset unique signature
 
 # 5. Features engineering
 ## 5.10 Created variables

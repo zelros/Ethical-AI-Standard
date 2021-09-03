@@ -103,11 +103,6 @@ The 15 remaining columns are:
 For categorical variables: replacement by the most frequent value.
 For numerical variables: replacement by variable median.
 
-## 4.40 Dataset unique signature
-```
-87b01d1b7bc1b930348dd2d6d7c6d8c00fd5fa5179badc3a8d0a5eb8ab878eae
-```
-
 # 5. Features engineering
 
 ## 5.10 Created variables
