@@ -1,6 +1,6 @@
 # 1. General Information
 ## 1.01 Standard version
-0.3
+0.4
 ## 1.10 Name
 Home insurance claims classifier.
 ## 1.20 Purpose

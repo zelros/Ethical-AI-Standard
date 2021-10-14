@@ -1,6 +1,6 @@
 # 1. General Information
 ## 1.01 Standard version
-v1.0
+0.4
 ## 1.10 Name
 ## 1.20 Purpose
 ## 1.30 Date
