@@ -45,6 +45,6 @@
 # 7. Model Audit
 ## 7.10 Variable importance
 ## 7.20 Learning curve
-## 7.30 Probability distribution
-## 7.40 Descriptive statistics
-## 7.50 Stability over time
+## 7.30 Stability over time
+## 7.40 Prediction distribution
+## 7.50 Descriptive statistics
