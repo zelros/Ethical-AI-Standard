@@ -252,7 +252,7 @@ a5b4e3721bd9ea1db352b8672a2facb61058380869f09bd35bb0072695d88cbb
 ## 7.30 Stability over time
 ![](./img/chart5.png)
 
-## 7.40 Prediction distribution
+## 7.40 Predictions distribution
 
 ## 7.50 Descriptive statistics
 ![](./img/chart1.png)
