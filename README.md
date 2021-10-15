@@ -20,6 +20,8 @@ We decided to publish this standard publicly on our github, because we know that
 In this repository, you can find: 
 - the standard itself: [standard.md](https://github.com/zelros/Ethical-AI-Standard/blob/master/standard.md)
 - an example of populated standard document, for a fake machine learning project: [project-example.md](https://github.com/zelros/Ethical-AI-Standard/blob/master/project-example.md)
+- (new) a derived standard for monitoring report: [monitoring-report-standard.md] 
+- (new) an example of populated monitoring report: [monitoring-report-example.md] 
 
 ## How you can contribute
 You can contribute by:

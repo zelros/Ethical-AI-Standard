@@ -37,7 +37,7 @@
 ## 6.50 Model unique signature
 
 # 7. Model Audit
-## 7.10 Variable importance
+## 7.10 Features importance
 ## 7.20 Learning curve
 ## 7.30 Stability over time
 ## 7.40 Predictions distribution
