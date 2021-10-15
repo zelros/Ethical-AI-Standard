@@ -38,7 +38,7 @@ At this step, the dataset unique signature is:
 abece2ef84645c61499cb4b74f552daa205380666b1ab03bbfa2fcdab91b11b6
 ```
 
-# 3. Data Quality
+# 3. Data Preparation
 
 ## 3.10 Columns
 
@@ -55,6 +55,7 @@ abece2ef84645c61499cb4b74f552daa205380666b1ab03bbfa2fcdab91b11b6
 ### 3.10.30 Columns containing only one value (NaN included)
 2 columns have been dropped because they were containing only 1 value
 
+### 3.10.40 Columns after filtering
 The 15 remaining columns are:
 
 | Columns   |
@@ -80,46 +81,45 @@ No row is entirely empty.
 ### 3.20.30 Number of rows where less than 2 fields are filled in
 Every row contains more than 2 non empty fields.
 
-214 795 rows remaining.
-
-# 4. Data Preparation
-
-## 4.10 Rows filtering
+### 3.20.40 Rows after filtering
 No row filtering
 214 795 rows remaining.
 
-## 4.20 Columns filtering
-The 15 remaining columns are:
-
-| Columns   |
-| ------------- |
-| Age           |
-| Gender      |
-| Loan Amount      |
-| ...      |
-| Target      |
-
-## 4.30 Missing values handling
+## 3.30 Missing values handling
 For categorical variables: replacement by the most frequent value.
 For numerical variables: replacement by variable median.
 
-# 5. Features engineering
+## 3.40 Dataset unique signature
+At this step, the dataset unique signature is:
+```
+cb4b74f552daa205380666b1ab03bbfa2fcde2ef8464abe5c61499cab91b11b6
+```
 
-## 5.10 Created variables
+# 4. Features engineering
+
+## 4.10 Created variables
 2 variables have been created: 
 - Age of the insured person at loan subscription, in months (loan subscription date - insured birth date)
 - Loan seniority at claim creation date, in months (claim creation date - loan subscription date)
 
-## 5.20 Target creation
+## 4.20 Target creation
 The target is computed like this: if claim processing time (settlement date - creation date) is superior to 3 weeks, it is considered as complex (target = 1), else it is simple (target = 0).
 
 The target rate is: 6.61%
 
-## 5.30 Dataset unique signature
+## 4.30 Dataset unique signature
 At this step, the dataset unique signature is:
 ```
 bdb4e3721bd9ea1db352b8672a2facb61058380869f09bd35bb0072695d86a4d
 ```
+# 5. Training Data Audit
+
+## 5.10 Variables statistics
+### 5.10.1 Age
+![](./img/chart1.png)
+
+### 5.10.2 Gender
+![](./img/chart2.png)
 
 # 6. Model Description
 
@@ -253,8 +253,3 @@ a5b4e3721bd9ea1db352b8672a2facb61058380869f09bd35bb0072695d88cbb
 ![](./img/chart5.png)
 
 ## 7.40 Predictions distribution
-
-## 7.50 Descriptive statistics
-![](./img/chart1.png)
-![](./img/chart2.png)
-
